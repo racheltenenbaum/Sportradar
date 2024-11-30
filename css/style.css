@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+h1 {
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  font-size: 80px;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+h2 {
+  color: #ff0000;
+  text-align: center;
+  font-weight: 700;
+}
+
+body {
+  background-color: #00003c;
+  font-family: "Lexend", sans-serif;
+}
+
+nav {
+  background-color: #00003c;
+}
+
+.nav-link {
+  color: #fafafc;
+}
+
+.nav-link:hover {
+  color: #ff0000;
+}
+
+i {
+  color: #ff0000;
+}
+
+label {
+  color: #fafafc;
+  margin-top: 15px;
+  font-family: "Lexend", sans-serif;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.card {
+  padding: 0%;
+  border: 0px;
+}
+
+.main-div {
+  background-color: #26276e;
+  padding: 40px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.main-div.add-event {
+  width: 55%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100px;
+}
+
+.btn-primary {
+  background-color: #ff0000;
+  border: #ff0000;
+}
+
+.btn-primary:hover {
+  background-color: #26276e;
+  border: #26276e;
+  color: #ff0000;
+}
+
+.error-msg {
+  color: #ff0000;
+}
+
+.team-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.venue-text {
+  color: #26276e;
+  font-weight: 600;
+}
