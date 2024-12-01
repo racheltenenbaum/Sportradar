@@ -1,5 +1,5 @@
 # Sportradar Event Schedule
- - this project has been created as part of the application process for Sportradar Coding Academy, Coding Exercise (BE) -
+&ndash; this project has been created as part of the application process for Sportradar Coding Academy, Coding Exercise (BE) &ndash;
 
 ## About
 The Sportradar Event Schedule brings to you a lively display of all the hottest sports events around the world - from soccer to baseball to basketball, using primarily PHP, MYQSL, HTML & CSS, using some OOP and elementary concepts of the MVC framework (please note I have very minimal experience with this, so tried my best to make the most out the situation - but it is not a full MVC program or fully object-oriented!).
