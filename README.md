@@ -1,8 +1,8 @@
 # Sportradar Event Schedule
-- this project has been created as part of the application process for Sportradar Coding Academy, Coding Exercise (BE) -
+ - this project has been created as part of the application process for Sportradar Coding Academy, Coding Exercise (BE) -
 
 ## About
-The Sportradar Event Schedule brings to you a lively display of all the hottest sports events around the world - from soccer to baseball to basketball, using primarily PHP, MYQSL, HTML & CSS, using some OOP and elemntary concepts of the MVC framework (please note I have very minimal experience with this, so tried my best to make the most out the situation - but it is not a full MVC program or fully object-oriented!).
+The Sportradar Event Schedule brings to you a lively display of all the hottest sports events around the world - from soccer to baseball to basketball, using primarily PHP, MYQSL, HTML & CSS, using some OOP and elementary concepts of the MVC framework (please note I have very minimal experience with this, so tried my best to make the most out the situation - but it is not a full MVC program or fully object-oriented!).
 You can filter through events to get results based on your favorite sport or a date range, and can add new events to do the database.
 
 ## How To
@@ -17,4 +17,4 @@ All events, both past and future, are displayed on the index.php page, with the 
 After filtering, you will be transferred to the event_results.php page, with your requested filter displayed. You can always continue filtering through from the page and the display will be updated accordingly.
 If you'd like to add a new event, go ahead to the create_event.php page, where you'll find a form to fill out with all the details. Beware of error messages in the form in case you enter illogical data (e.g. a soccer team cannot play a basketball team)!
 
-Enjoy playing around.
+Enjoy playing around ⚽️🏀⚾️
