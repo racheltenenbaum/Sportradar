@@ -90,6 +90,18 @@ label {
   color: #ff0000;
 }
 
+.btn-secondary {
+  background-color: #acacf4;
+  border-color: #acacf4;
+  color: #26276e;
+}
+
+.btn-secondary:hover {
+  background-color: #ececff;
+  color: #26276e;
+  border-color: #ececff;
+}
+
 .error-msg {
   color: #ff0000;
 }
@@ -102,4 +114,9 @@ label {
 .venue-text {
   color: #26276e;
   font-weight: 600;
+}
+
+.form-field {
+  background-color: #ececff;
+  border-color: #ececff;
 }
