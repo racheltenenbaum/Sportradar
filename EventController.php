@@ -97,7 +97,7 @@
           JOIN Team t2 on event.team_2_id_fk = t2.id
           JOIN Sport on t1.sport_id_fk = sport.id
           WHERE sport.name = '$sport'
-          AND (datetime > '$start_date' OR datetime < '$end_date')
+          AND (datetime > '$start_date' AND datetime < '$end_date')
           ORDER BY datetime ASC";
       } elseif ((!empty($start_date)) && (empty($end_date))) {
           $sql = "SELECT event.datetime as datetime,
@@ -169,7 +169,7 @@
             JOIN Team t1 on event.team_1_id_fk = t1.id
             JOIN Team t2 on event.team_2_id_fk = t2.id
             JOIN Sport on t1.sport_id_fk = sport.id
-            WHERE (datetime > '$start_date' OR datetime < '$end_date')
+            WHERE (datetime > '$start_date' AND datetime < '$end_date')
             ORDER BY datetime ASC";
         } elseif ((!empty($start_date)) && (empty($end_date))) {
           $sql = "SELECT event.datetime as datetime,
