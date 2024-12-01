@@ -14,11 +14,20 @@
 
   $events = eventFilterIndex($sport, $start_date, $end_date);
 
+  // to determine if there are past events or not, so the "Past Events" h2 title will only show when relevant (this solution is to prevent performing additional DB queries)
+  $past_events = 0;
+  $past_header = "";
+  foreach ($events as $key => $event) {
+    if (new DateTime($event["datetime"]) < (new DateTime('now'))) {
+      $past_events += 1;
+    }
+  }
+  ($past_events >= 1)?$past_header="Past Events":"";
+
+  // pass the POST filter requests via the url
   if (isset($_POST["filter"])) {
     header("refresh: 0; url= 'event_results.php?sport={$_POST["sport"]}&start_date={$_POST["start_date"]}&end_date={$_POST["end_date"]}'");
   }
-
-
 ?>
 <?php include "components/header.php" ?>
 <h1>Event Schedule</h1>
@@ -67,7 +76,7 @@
         <div><?php include "components/event_card.php" ?></div>
       <?php } endforeach; ?>
     </div>
-    <h2 class="mt-5 mb-3">Past Events</h2>
+    <h2 class="mt-5 mb-3"><?=$past_header?></h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <?php foreach ($events as $key => $event):?>
         <?php
