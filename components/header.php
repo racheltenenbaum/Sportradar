@@ -13,7 +13,7 @@
     top: 0;">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php">
-        <img src="Sportradar-Brand-Line_Color_White.svg" width="200px" class="d-inline-block ms-3">
+        <img src="../images/Sportradar-Brand-Line_Color_White.svg" width="200px" class="d-inline-block ms-3">
       </a>
       <div class="collapse navbar-collapse" >
         <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
