@@ -60,7 +60,10 @@
   </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <?php foreach ($events as $key => $event):?>
-        <?php $datetime = new DateTime($event["datetime"]);?>
+        <?php
+          $datetime = new DateTime($event["datetime"]);
+          $now = new DateTime('now');
+          if ($datetime >= $now) {?>
         <div><div class="card">
           <div class="d-flex card-header" style="justify-content:space-between">
             <div>
@@ -95,8 +98,50 @@
           </div>
         </div>
       </div>
-      <?php endforeach; ?>
+      <?php } endforeach; ?>
+    </div>
+    <h2 class="mt-5 mb-3">Past Events</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <?php foreach ($events as $key => $event):?>
+        <?php
+          $datetime = new DateTime($event["datetime"]);
+          $now = new DateTime('now');
+          if ($datetime < $now) {?>
+        <div><div class="card">
+          <div class="d-flex card-header" style="justify-content:space-between">
+            <div>
+              <?=$datetime->format('D, j M Y')?>
+            </div>
+            <div>
+              <?=$datetime->format('g:i a')?>
+            </div>
+          </div>
+          <img src="<?=$event["sport_icon"]?>" class="card-img-top" alt="game">
+          <div class="card-body">
+            <p class="venue-text"><i class="fa-solid fa-map-pin"></i>  <?=$event["ven_name"]?>, <?=$event["ven_city"]?></p>
+            <div class="d-flex mb-2" style="justify-content: space-between; align-items:center";>
+              <div>
+                <img src="<?=$event["t1_logo"]?>" alt="<?=$event["t1_name"]?>" class="logo-img">
+              </div>
+              <div>
+                <text>VS.</text>
+              </div>
+              <div>
+                <img src="<?=$event["t2_logo"]?>" alt="<?=$event["t2_name"]?>" class="logo-img">
+              </div>
+            </div>
+            <div class="d-flex" style="justify-content: space-between;">
+              <div>
+                <text class="team-text"><?=$event["t1_name"]?></text>
+              </div>
+              <div>
+                <text class="team-text"><?=$event["t2_name"]?></text>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php } endforeach; ?>
     </div>
   </div>
-
 <?php include "components/footer.php" ?>
