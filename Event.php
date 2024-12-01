@@ -16,6 +16,14 @@ class Event {
     $this->description = $description;
   }
 
+  public function getEvent($id) {
+    include "components/connection.php";
+    $sql = "SELECT * FROM Event WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    return $row;
+  }
+
   // function to commit new event (Event class instance) to database
   public function AddEvent(Event $event) {
     include "components/connection.php";
