@@ -3,7 +3,7 @@
 
 ## About
 The Sportradar Event Schedule brings to you a lively display of all the hottest sports events around the world - from soccer to baseball to basketball, using primarily PHP, MYQSL, HTML & CSS, using some OOP and elementary concepts of the MVC framework (please note I have very minimal experience with this, so tried my best to make the most out the situation - but it is not a full MVC program or fully object-oriented!).<br><br>
-You can filter through events to get results based on your favorite sport or a date range, and can add new events to do the database.
+You can filter through events to get results based on your favorite sport or a date range, and can add new events to the database.
 
 ## How To
 This project uses XAMPP and phpMyAdmin to run the database local hosting and interaction. It is recommended to have these set up as a first stage, along with PHP installed in order to run the Event Schedule successfully.<br><br>
