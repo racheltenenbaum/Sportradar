@@ -28,7 +28,7 @@
 ?>
 <?php include "components/header.php" ?>
 <div class="main-div add-event">
-  <h2>Add New Event</h2>
+  <h2 style="text-align: center;">Add New Event</h2>
   <form method="post">
     <label for="datetime" class="form-label">Date & Time:</label>
       <input type="datetime-local" class="form-control" name="datetime" placeholder="Date & Time" value="<?php if (isset($_POST["datetime"])) {echo $_POST["datetime"];}?>">
