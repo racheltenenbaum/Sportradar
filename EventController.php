@@ -76,10 +76,49 @@
   return $rows;
   }
 
-  // function to retrieve all the events of a particular sport
-  function eventSportIndex($sport) {
+  // function to retrieve filtered events by the user
+  // alters the DB query based on info inputted/not inputted by the user
+  function eventFilterIndex($sport, $start_date, $end_date) {
     include "components/connection.php";
-    $sql = "SELECT event.datetime as datetime,
+    if ($sport != "All Sports") {
+      if ((!empty($start_date)) && (!empty($end_date))) {
+        $sql = "SELECT event.datetime as datetime,
+          t1.name as t1_name,
+          t2.name as t2_name,
+          t1.logo as t1_logo,
+          t2.logo as t2_logo,
+          venue.name as ven_name,
+          venue.city as ven_city,
+          sport.icon as sport_icon,
+          sport.name
+          FROM Event
+          JOIN Venue on venue.id = event.venue_id_fk
+          JOIN Team t1 on event.team_1_id_fk = t1.id
+          JOIN Team t2 on event.team_2_id_fk = t2.id
+          JOIN Sport on t1.sport_id_fk = sport.id
+          WHERE sport.name = '$sport'
+          AND (datetime > '$start_date' OR datetime < '$end_date')
+          ORDER BY datetime ASC";
+      } elseif ((!empty($start_date)) && (empty($end_date))) {
+          $sql = "SELECT event.datetime as datetime,
+          t1.name as t1_name,
+          t2.name as t2_name,
+          t1.logo as t1_logo,
+          t2.logo as t2_logo,
+          venue.name as ven_name,
+          venue.city as ven_city,
+          sport.icon as sport_icon,
+          sport.name
+          FROM Event
+          JOIN Venue on venue.id = event.venue_id_fk
+          JOIN Team t1 on event.team_1_id_fk = t1.id
+          JOIN Team t2 on event.team_2_id_fk = t2.id
+          JOIN Sport on t1.sport_id_fk = sport.id
+          WHERE sport.name = '$sport'
+          AND datetime > '$start_date'
+          ORDER BY datetime ASC";
+      } elseif ((empty($start_date)) && (!empty($end_date))) {
+        $sql = "SELECT event.datetime as datetime,
             t1.name as t1_name,
             t2.name as t2_name,
             t1.logo as t1_logo,
@@ -94,8 +133,84 @@
             JOIN Team t2 on event.team_2_id_fk = t2.id
             JOIN Sport on t1.sport_id_fk = sport.id
             WHERE sport.name = '$sport'
+            AND datetime < '$end_date'
             ORDER BY datetime ASC";
-    $result = mysqli_query($conn, $sql);
-    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    return $rows;
+      } else {
+        $sql = "SELECT event.datetime as datetime,
+        t1.name as t1_name,
+        t2.name as t2_name,
+        t1.logo as t1_logo,
+        t2.logo as t2_logo,
+        venue.name as ven_name,
+        venue.city as ven_city,
+        sport.icon as sport_icon,
+        sport.name
+        FROM Event
+        JOIN Venue on venue.id = event.venue_id_fk
+        JOIN Team t1 on event.team_1_id_fk = t1.id
+        JOIN Team t2 on event.team_2_id_fk = t2.id
+        JOIN Sport on t1.sport_id_fk = sport.id
+        WHERE sport.name = '$sport'
+        ORDER BY datetime ASC";
+      }
+    } else {
+        if ((!empty($start_date)) && (!empty($end_date))){
+          $sql = "SELECT event.datetime as datetime,
+            t1.name as t1_name,
+            t2.name as t2_name,
+            t1.logo as t1_logo,
+            t2.logo as t2_logo,
+            venue.name as ven_name,
+            venue.city as ven_city,
+            sport.icon as sport_icon,
+            sport.name
+            FROM Event
+            JOIN Venue on venue.id = event.venue_id_fk
+            JOIN Team t1 on event.team_1_id_fk = t1.id
+            JOIN Team t2 on event.team_2_id_fk = t2.id
+            JOIN Sport on t1.sport_id_fk = sport.id
+            WHERE (datetime > '$start_date' OR datetime < '$end_date')
+            ORDER BY datetime ASC";
+        } elseif ((!empty($start_date)) && (empty($end_date))) {
+          $sql = "SELECT event.datetime as datetime,
+          t1.name as t1_name,
+          t2.name as t2_name,
+          t1.logo as t1_logo,
+          t2.logo as t2_logo,
+          venue.name as ven_name,
+          venue.city as ven_city,
+          sport.icon as sport_icon,
+          sport.name
+          FROM Event
+          JOIN Venue on venue.id = event.venue_id_fk
+          JOIN Team t1 on event.team_1_id_fk = t1.id
+          JOIN Team t2 on event.team_2_id_fk = t2.id
+          JOIN Sport on t1.sport_id_fk = sport.id
+          WHERE datetime > '$start_date'
+          ORDER BY datetime ASC";
+        } elseif ((empty($start_date)) && (!empty($end_date))) {
+          $sql = "SELECT event.datetime as datetime,
+          t1.name as t1_name,
+          t2.name as t2_name,
+          t1.logo as t1_logo,
+          t2.logo as t2_logo,
+          venue.name as ven_name,
+          venue.city as ven_city,
+          sport.icon as sport_icon,
+          sport.name
+          FROM Event
+          JOIN Venue on venue.id = event.venue_id_fk
+          JOIN Team t1 on event.team_1_id_fk = t1.id
+          JOIN Team t2 on event.team_2_id_fk = t2.id
+          JOIN Sport on t1.sport_id_fk = sport.id
+          WHERE datetime < '$end_date'
+          ORDER BY datetime ASC";
+        }
+      };
+      $result = mysqli_query($conn, $sql);
+      $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+      return $rows;
+      if (!isset($sql)) {
+        return eventIndex();
+      }
     }
