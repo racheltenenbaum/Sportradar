@@ -10,7 +10,7 @@ You can filter through events to get results based on your favorite sport or a d
 ## How To Set Up
 
 This project uses XAMPP and phpMyAdmin to run the database local hosting and interaction. It is recommended to have these set up as a first stage, along with PHP installed in order to run the Event Schedule successfully.<br><br>
-The database included in the project files already has sample data inserted into it, including a database creation query, so it's good to go with the upload via phpMyAdmin.<br><br>
+The database creation file included in the project files (sportradar.sql) already has sample data inserted into it, including a database creation query, so it's good to go with the upload via phpMyAdmin. If you'd like to see a visual layout of the database to get a good grasp of it, please see the ERD at erd.drawio.<br><br>
 You can then run a local host server and off we go - the Event Schedule is ready!
 
 ## Details & How To Use
